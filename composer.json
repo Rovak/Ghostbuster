@@ -1,0 +1,18 @@
+{
+    "name": "rovak/ghostbuster",
+    "description": "Ghostbuster",
+    "type": "library",
+    "keywords": [
+        "ghostscript"
+    ],
+    "homepage": "http://rovak.github.com/Ghostbuster/",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "Ghostbuster\\": "src/"
+        }
+    }
+}
