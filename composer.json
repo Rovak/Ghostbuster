@@ -1,6 +1,6 @@
 {
     "name": "rovak/ghostbuster",
-    "description": "Ghostbuster",
+    "description": "PHP wrapper for Ghostscript",
     "type": "library",
     "keywords": [
         "ghostscript"
