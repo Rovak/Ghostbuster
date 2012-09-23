@@ -10,7 +10,7 @@ class Device extends AbstractDevice
      * @var string
      */
     protected $name;
-    
+
     /**
      * @param string $name
      */
@@ -20,7 +20,7 @@ class Device extends AbstractDevice
             $this->setName($name);
         }
     }
-    
+
     /**
      * @return string
      */
@@ -28,7 +28,7 @@ class Device extends AbstractDevice
     {
         return $this->name;
     }
-    
+
     /**
      * @param string $name
      */

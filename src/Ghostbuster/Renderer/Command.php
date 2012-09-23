@@ -36,10 +36,10 @@ class Command
 
         $this->parameters = $parameters;
     }
-    
+
     /**
      * Add parameters
-     * 
+     *
      * @param array $parameters
      */
     public function addParameters($parameters)
@@ -50,10 +50,10 @@ class Command
 
         $this->getParameters()->merge($parameters);
     }
-    
+
     /**
      * Add parameter
-     * 
+     *
      * @param string $key
      * @param string $value
      */
@@ -72,14 +72,14 @@ class Command
 
     /**
      * Is this a seperate Ghostscript call?
-     * 
+     *
      * @param boolean $separate
      */
     public function setSeparate($separate)
     {
         $this->separate = (bool) $separate;
     }
-    
+
     /**
      * @return string
      */
@@ -96,7 +96,7 @@ class Command
 
             $commands[] = $cmd;
         }
-        
+
         return implode(' ', $commands);
     }
 }

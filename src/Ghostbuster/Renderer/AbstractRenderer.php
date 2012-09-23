@@ -71,7 +71,7 @@ abstract class AbstractRenderer
     }
 
     /**
-     * 
+     *
      * @param Ghost $ghost
      * @return AbstractRenderer
      */
@@ -89,7 +89,7 @@ abstract class AbstractRenderer
         $this->elements[] = $element;
         return $this;
     }
-    
+
     /**
      * @return ArrayObject
      */
@@ -97,10 +97,10 @@ abstract class AbstractRenderer
     {
         return $this->parameters;
     }
-    
+
     /**
      * Output to a file
-     * 
+     *
      * @param string|null $filename
      */
     public function output($filename = null)
@@ -108,7 +108,7 @@ abstract class AbstractRenderer
         $command = new Command();
         $command->addParameters($this->getParameters());
         $command->addParameters($this->getDevice()->getParameters());
-        
+
         if (null !== $filename) {
             $command->setParameter('sOutputFile', $filename);
         }
@@ -116,7 +116,7 @@ abstract class AbstractRenderer
         $commands = array($this->getGhost()->getPath());
         $commands[] = $command;
         $commands[] = '"' . getcwd() . '/data/fase/1/1.pdf"';
-        
+
         return implode(' ', $commands);
     }
 }

@@ -20,7 +20,7 @@ class Document
 
     /**
      * Retrieve a range fromt this document
-     * 
+     *
      * @param integer|null $first
      * @param integer|null $last
      */
@@ -28,7 +28,7 @@ class Document
     {
         return new Range($this, $first, $last);
     }
-    
+
     /**
      * @return string
      */
@@ -36,7 +36,7 @@ class Document
     {
         return $this->filename;
     }
-    
+
     /**
      * @param string $filename
      */

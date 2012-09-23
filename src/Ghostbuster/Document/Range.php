@@ -17,19 +17,19 @@ class Range
 
     /**
      * The page from which this range starts
-     * 
+     *
      * @var integer
      */
     protected $firstPage;
 
     /**
      * The last page included in this range
-     * 
+     *
      * @var integer
      */
     protected $lastPage;
 
-    function __construct(Document $document, $firstPage, $lastPage)
+    public function __construct(Document $document, $firstPage, $lastPage)
     {
         $this->document = $document;
         $this->setFirstPage($firstPage);
@@ -46,7 +46,7 @@ class Range
 
     /**
      * Set the first page
-     * 
+     *
      * @param integer $firstPage
      */
     public function setFirstPage($firstPage)
@@ -64,7 +64,7 @@ class Range
 
     /**
      * Set the last page
-     * 
+     *
      * @param integer $lastPage
      */
     public function setLastPage($lastPage)
