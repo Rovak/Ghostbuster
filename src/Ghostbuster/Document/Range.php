@@ -2,6 +2,7 @@
 
 namespace Ghostbuster\Document;
 
+use Ghostbuster\Document\Document;
 use Ghostbuster\Renderer\Parameters;
 
 /**
@@ -29,6 +30,11 @@ class Range
      */
     protected $lastPage;
 
+    /**
+     * @param Document $document
+     * @param integer|null $firstPage
+     * @param integer|null $lastPage
+     */
     public function __construct(Document $document, $firstPage, $lastPage)
     {
         $this->document = $document;
@@ -90,4 +96,15 @@ class Range
         return $parameters;
     }
 
+    /**
+     * @return \Ghostbuster\Renderer\Command
+     */
+    public function getOutput()
+    {
+        $command = new \Ghostbuster\Renderer\Command();
+        $command->setParameters($this->getParameters());
+        $command->addInputFile($this->document->getFilename());
+
+        return $command;
+    }
 }

@@ -9,8 +9,27 @@ use Ghostbuster\Renderer\Parameters;
  */
 class Command
 {
+
+    /**
+     * @var array
+     */
     protected $parameters;
 
+    /**
+     * @var array
+     */
+    protected $inputFiles = array();
+
+    /**
+     * Set output file
+     *
+     * @var string
+     */
+    protected $outputFile;
+
+    /**
+     * @var boolean
+     */
     protected $separate;
 
     /**
@@ -59,7 +78,16 @@ class Command
      */
     public function setParameter($key, $value)
     {
-        $this->getParameters()->offsetSet($key, $value);
+        $this->parameters[$key] = $value;
+    }
+
+    /**
+     * @param string $key
+     * @return string
+     */
+    public function getParameter($key)
+    {
+        return $this->parameters[$key];
     }
 
     /**
@@ -81,6 +109,40 @@ class Command
     }
 
     /**
+     * @return array
+     */
+    public function getInputFiles()
+    {
+        return $this->inputFiles;
+    }
+
+    /**
+     * @param array $inputFiles
+     */
+    public function addInputFile($inputFiles)
+    {
+        $this->inputFiles[] = $inputFiles;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOutputFile()
+    {
+        return $this->getParameter('sOutputFile');
+    }
+
+    /**
+     * Set the output file
+     *
+     * @param string $outputFile
+     */
+    public function setOutputFile($outputFile)
+    {
+        $this->setParameter('sOutputFile', $outputFile);
+    }
+
+    /**
      * @return string
      */
     public function __toString()
@@ -95,6 +157,13 @@ class Command
             }
 
             $commands[] = $cmd;
+        }
+
+        /**
+         * Append the input file
+         */
+        foreach ($this->getInputFiles() as $inputFile) {
+            $commands[] = $inputFile;
         }
 
         return implode(' ', $commands);
