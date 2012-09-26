@@ -30,7 +30,31 @@
         <section id="main-content">
           <h1>Ghostbuster</h1>
 
-<p>PHP wrapper for Ghostscript</p>
+<p>PHP wrapper for Ghostscript </p>
+
+<p>This library is still work in progress and should not be used in a production environment</p>
+
+<h2>Installation</h2>
+
+<h3>Using composer</h3>
+
+<p>The recommended way is to install this module through composer, do this by adding 
+<code>"rovak/ghostbuster":"dev-master"</code> to your required libraries and install by running
+<code>php composer.phar install</code></p>
+
+<h2>Usage</h2>
+
+<p>Documentation will be added when the API is stable</p>
+
+<div class="highlight"><pre><span class="nv">$document</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Ghostbuster\Document\Document</span><span class="p">(</span><span class="s1">'document.pdf'</span><span class="p">);</span>
+
+<span class="nv">$batch</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Ghostbuster\Renderer\Batch</span><span class="p">();</span>
+<span class="nv">$batch</span><span class="o">-&gt;</span><span class="na">addDocument</span><span class="p">(</span><span class="nv">$document</span><span class="p">);</span>
+<span class="nv">$batch</span><span class="o">-&gt;</span><span class="na">addDocument</span><span class="p">(</span><span class="nv">$document</span><span class="o">-&gt;</span><span class="na">getRange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">));</span>
+<span class="nv">$batch</span><span class="o">-&gt;</span><span class="na">addDocument</span><span class="p">(</span><span class="nv">$document</span><span class="o">-&gt;</span><span class="na">getRange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+
+<span class="nv">$batch</span><span class="o">-&gt;</span><span class="na">output</span><span class="p">(</span><span class="s1">'result.pdf'</span><span class="p">);</span>
+</pre></div>
         </section>
 
         <aside id="sidebar">
