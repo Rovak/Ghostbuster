@@ -25,9 +25,8 @@ Documentation will be added when the API is stable
 $document = new \Ghostbuster\Document\Document('document.pdf');
 
 $batch = new \Ghostbuster\Renderer\Batch();
-$batch->addDocument($document);
-$batch->addDocument($document->getRange(1,3));
-$batch->addDocument($document->getRange(2,2));
-
-$batch->output('result.pdf');
+$batch  ->addDocument($document)
+        ->addDocument($document->getRange(1,3))
+        ->addDocument($document->getRange(2,2))
+        ->output('result.pdf');
 ```
