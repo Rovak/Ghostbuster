@@ -123,6 +123,8 @@ abstract class AbstractRenderer
 
         $cmd = $this->getGhost()->getPath()
             . " " . $command;
+        
+        exec($cmd);
     }
 
     /**
@@ -136,6 +138,8 @@ abstract class AbstractRenderer
         $command->addParameters($this->getParameters());
         $command->addParameters($this->getDevice()->getParameters());
         $command->setOutputFile($filename);
+        
+        $temp_files = array();
 
         foreach ($this->getDocuments() as $document) {
             $output = $document->getOutput();
@@ -145,10 +149,14 @@ abstract class AbstractRenderer
                 $command->addInputFile($output->getFilename());
             } elseif ($output instanceof Command) {
                 $outputFile = dirname($command->getOutputFile()) . '/' . uniqid();
+                $temp_files[] = $outputFile;
                 $output->setOutputFile($outputFile);
                 $this->runCommand($output);
                 $command->addInputFile($outputFile);
             }
+        }
+        foreach ($temp_files as $temp_file) {
+            unlink($temp_file);
         }
 
         $this->runCommand($command);

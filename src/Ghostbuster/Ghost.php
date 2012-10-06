@@ -23,7 +23,6 @@ class Ghost
     }
 
     /**
-     *
      * @param string $cmd
      */
     public function setPath($cmd)
