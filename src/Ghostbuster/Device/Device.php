@@ -4,7 +4,7 @@ namespace Ghostbuster\Device;
 
 use Ghostbuster\Renderer\Parameters;
 
-class Device extends AbstractDevice
+class Device implements DeviceInterface
 {
     /**
      * @var string

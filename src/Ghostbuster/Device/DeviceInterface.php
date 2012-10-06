@@ -4,10 +4,13 @@ namespace Ghostbuster\Device;
 
 use Ghostbuster\Renderer\Parameters;
 
-abstract class AbstractDevice
+/**
+ * Provides device specific parameters
+ */
+interface DeviceInterface
 {
     /**
      * @return Parameters
      */
-    abstract public function getParameters();
+    public function getParameters();
 }

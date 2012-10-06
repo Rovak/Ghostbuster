@@ -3,7 +3,7 @@
 namespace Ghostbuster\Renderer;
 
 use ArrayObject;
-use Ghostbuster\Device\AbstractDevice;
+use Ghostbuster\Device\DeviceInterface;
 use Ghostbuster\Device\PDF as PDFDevice;
 use Ghostbuster\Document\Document;
 use Ghostbuster\Ghost;
@@ -32,7 +32,7 @@ abstract class AbstractRenderer
     protected $parameters;
 
     /**
-     * @var AbstractDevice
+     * @var DeviceInterface
      */
     protected $device;
 
@@ -42,7 +42,7 @@ abstract class AbstractRenderer
     protected $ghost;
 
     /**
-     * @return AbstractDevice
+     * @return DeviceInterface
      */
     public function getDevice()
     {
@@ -54,9 +54,9 @@ abstract class AbstractRenderer
     }
 
     /**
-     * @param AbstractDevice $device
+     * @param DeviceInterface $device
      */
-    public function setDevice(AbstractDevice $device)
+    public function setDevice(DeviceInterface $device)
     {
         $this->device = $device;
         return $this;
@@ -130,7 +130,7 @@ abstract class AbstractRenderer
      *
      * @param string|null $filename
      */
-    public function output($filename )
+    public function output($filename)
     {
         $command = new Command();
         $command->addParameters($this->getParameters());
