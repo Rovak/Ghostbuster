@@ -49,6 +49,16 @@ class Document
     {
         return new Range($this, $first, $last);
     }
+    
+    /**
+     * Return a single page
+     * 
+     * @param type $pageNumber
+     */
+    public function getPage($pageNumber)
+    {
+        return new Range($this, $pageNumber, $pageNumber);
+    }
 
     /**
      * @return Document
